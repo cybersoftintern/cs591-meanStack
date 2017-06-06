@@ -20,9 +20,9 @@ router.get('/:name', function (req, res, next) {
 });
 
 
-router.post('/:name', function (req, res, next) {
-    let theName = req.params.name
-    res.send(JSON.stringify({"string":theName,"length":theName.length}))
+router.post('/', function (req, res, next) {
+    let value = req.body.keystring
+    res.json({"string":value,"length":value.length})
 });
 
 module.exports = router;
