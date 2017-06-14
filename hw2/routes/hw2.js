@@ -89,19 +89,20 @@ router.post('/', function (req, res, next) {
     }
 
     else{
-        res.json({message:"invalid string"});
+        res.json({message:"please provide a string"});
     }
 })
 
 router.delete('/:toDelete', function (req, res, next) {
     people.find({name:req.params.toDelete},function(err,results){
         if(Object.keys(results).length === 0){
-            res.json({message:"not in our database"});
+
+            res.json({message:"string not found"});
         }
         else{
             people.remove({name:req.params.toDelete},function(err){
             if(err) throw err;
-            else res.json({message:"done"});
+            else res.json({message:"deleted"});
 
 
         })
